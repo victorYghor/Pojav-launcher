@@ -46,7 +46,6 @@ public class ControlLayout extends FrameLayout {
 
 	/* Cache to buttons for performance purposes */
 	private List<ControlInterface> mButtons;
-	private final ControlDrawerActuator mDrawerActuator = new ControlDrawerActuator();
 	private boolean mModifiable = false;
 	private boolean mIsModified;
 	private boolean mControlVisible = false;
@@ -82,7 +81,6 @@ public class ControlLayout extends FrameLayout {
 			mActionRow = new ActionRow(getContext());
 			addView(mActionRow);
 		}
-		mDrawerActuator.unregisterAllDrawers();
 		removeAllButtons();
 		if(mLayout != null) {
 			mLayout.mControlDataList = null;
@@ -160,7 +158,6 @@ public class ControlLayout extends FrameLayout {
 		}
 
 		setModified(true);
-		mDrawerActuator.registerControlDrawer(view);
 		return view;
 	}
 
@@ -228,8 +225,6 @@ public class ControlLayout extends FrameLayout {
 	}
 
 	public void setModifiable(boolean isModifiable) {
-		if(isModifiable) mDrawerActuator.unregisterListener();
-		else mDrawerActuator.registerListener();
 		if(!isModifiable && mModifiable){
 			removeEditWindow();
 		}

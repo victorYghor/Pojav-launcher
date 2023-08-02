@@ -526,7 +526,7 @@ public class EditControlPopup {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(mCurrentlyEditedButton instanceof ControlDrawer) {
                     ControlDrawer controlDrawer = (ControlDrawer) mCurrentlyEditedButton;
-                    controlDrawer.drawerData.actuationMode = ControlDrawerData.intToActuationMode(mAutoActuationSpinner.getSelectedItemPosition());
+                    controlDrawer.changeActuationType(ControlDrawerData.intToActuationMode(mAutoActuationSpinner.getSelectedItemPosition()));
                     // don't need to sync because actuation mode only impacts the drawer itself
                 }
             }

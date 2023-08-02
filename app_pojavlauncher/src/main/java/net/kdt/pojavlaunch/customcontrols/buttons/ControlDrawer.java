@@ -4,18 +4,21 @@ import android.annotation.SuppressLint;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
+import net.kdt.pojavlaunch.GrabListener;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.customcontrols.ControlData;
 import net.kdt.pojavlaunch.customcontrols.ControlDrawerData;
 import net.kdt.pojavlaunch.customcontrols.ControlLayout;
 import net.kdt.pojavlaunch.customcontrols.handleview.EditControlPopup;
 
+import org.lwjgl.glfw.CallbackBridge;
+
 import java.util.ArrayList;
 
 
 
 @SuppressLint("ViewConstructor")
-public class ControlDrawer extends ControlButton {
+public class ControlDrawer extends ControlButton implements GrabListener {
 
 
     public final ArrayList<ControlSubButton> buttons;
@@ -31,6 +34,7 @@ public class ControlDrawer extends ControlButton {
         this.parentLayout = layout;
         this.drawerData = drawerData;
         areButtonsVisible = layout.getModifiable();
+        installActuationListeners();
     }
 
 
@@ -205,4 +209,51 @@ public class ControlDrawer extends ControlButton {
         layout.removeView(this);
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        uninstallActuationListeners();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+    }
+
+    public void changeActuationType(ControlDrawerData.ActuationMode newMode) {
+        uninstallActuationListeners();
+        drawerData.actuationMode = newMode;
+        installActuationListeners();
+    }
+
+    private void uninstallActuationListeners() {
+        switch (drawerData.actuationMode) {
+            case SHOW_ON_GRAB_ENABLED:
+            case HIDE_ON_GRAB_ENABLED:
+                CallbackBridge.removeGrabListener(this);
+                return;
+        }
+    }
+
+    private void installActuationListeners() {
+        switch (drawerData.actuationMode) {
+            case SHOW_ON_GRAB_ENABLED:
+            case HIDE_ON_GRAB_ENABLED:
+                CallbackBridge.addGrabListener(this);
+                return;
+        }
+    }
+
+    @Override
+    public void onGrabState(boolean isGrabbing) {
+        if(parentLayout.getModifiable()) return; // ignore all listener events when modifieble
+        switch(drawerData.actuationMode) {
+            case SHOW_ON_GRAB_ENABLED:
+                setButtonVisibility(isGrabbing);
+                return;
+            case HIDE_ON_GRAB_ENABLED:
+                setButtonVisibility(!isGrabbing);
+                return;
+        }
+    }
 }
