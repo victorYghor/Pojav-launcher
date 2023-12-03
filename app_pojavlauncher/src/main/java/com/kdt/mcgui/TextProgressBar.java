@@ -15,6 +15,8 @@ import androidx.core.content.res.ResourcesCompat;
 
 import net.kdt.pojavlaunch.R;
 
+/**the text insider the progress bar
+*/
 public class TextProgressBar extends ProgressBar {
 
     private int mTextPadding = 0;
@@ -42,6 +44,11 @@ public class TextProgressBar extends ProgressBar {
         mTextPaint.setAntiAlias(true);
     }
 
+
+    /**
+     * updates the progress bar
+     * @param canvas the canvas on which the background will be drawn
+     */
     @Override
     protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);

@@ -18,6 +18,9 @@ import net.kdt.pojavlaunch.R;
 
 import fr.spse.extended_view.ExtendedButton;
 
+/**
+ * set the ui and the style of the buttons on the first screen
+ */
 public class LauncherMenuButton extends ExtendedButton {
 
     public LauncherMenuButton(@NonNull Context context) {
@@ -30,7 +33,7 @@ public class LauncherMenuButton extends ExtendedButton {
     }
 
 
-    /** Set style stuff */
+    /** Set style stuff and apply padding */
     private void setSettings(){
         Resources resources = getContext().getResources();
 

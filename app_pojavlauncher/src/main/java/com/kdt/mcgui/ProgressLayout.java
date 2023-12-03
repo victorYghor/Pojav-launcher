@@ -31,6 +31,7 @@ import java.util.ArrayList;
  * This class relies on ExtraCore for its behavior.
  */
 public class ProgressLayout extends ConstraintLayout implements View.OnClickListener, TaskCountListener{
+    // todo for what this constant string need ?
     public static final String UNPACK_RUNTIME = "unpack_runtime";
     public static final String DOWNLOAD_MINECRAFT = "download_minecraft";
     public static final String DOWNLOAD_VERSION_LIST = "download_verlist";
@@ -39,6 +40,7 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
     public static final String EXTRACT_COMPONENTS = "extract_components";
     public static final String EXTRACT_SINGLE_FILES = "extract_single_files";
 
+    //overloading c
     public ProgressLayout(@NonNull Context context) {
         super(context);
         init();
@@ -125,6 +127,7 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
         });
     }
 
+
     class LayoutProgressListener implements ProgressListener {
         final String progressKey;
         final TextProgressBar textView;
@@ -150,7 +153,7 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
             post(()-> {
                 textView.setProgress(progress);
                 if(resid != -1) textView.setText(getContext().getString(resid, va));
-                else if(va.length > 0 && va[0] != null)textView.setText((String)va[0]);
+                else if(va.length > 0 && va[0] != null) textView.setText((String)va[0]);
                 else textView.setText("");
             });
         }

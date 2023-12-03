@@ -8,8 +8,10 @@ import androidx.core.content.res.ResourcesCompat;
 
 import net.kdt.pojavlaunch.R;
 
+/**Green button used in the app**/
 public class MineButton extends androidx.appcompat.widget.AppCompatButton {
-	
+
+	// archive default parameters with method overloading
 	public MineButton(Context ctx) {
 		this(ctx, null);
 	}

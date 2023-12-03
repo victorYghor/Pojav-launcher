@@ -5,6 +5,9 @@ import android.util.*;
 import android.graphics.*;
 import android.widget.EditText;
 
+/**
+ * Edit text used in the app
+ */
 public class MineEditText extends androidx.appcompat.widget.AppCompatEditText {
 	public MineEditText(Context ctx) {
 		super(ctx);

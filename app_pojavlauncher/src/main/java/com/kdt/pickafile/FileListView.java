@@ -24,6 +24,9 @@ public class FileListView extends LinearLayout
     private File lockPath = new File("/");
 
     //For filtering by file types:
+    /**
+     * constructor for get the files with this suffix
+     */
     private final String[] fileSuffixes;
     private boolean showFiles = true;
     private boolean showFolders = true;
@@ -48,6 +51,7 @@ public class FileListView extends LinearLayout
     }
 
     public FileListView(Context context, AttributeSet attrs){
+        // new String[0] is a empty string array
         this(context, attrs, new String[0]);
     }
 
@@ -75,6 +79,7 @@ public class FileListView extends LinearLayout
 
         mainLv = new ListView(context);
 
+        // todo what this does ?
         mainLv.setOnItemClickListener((p1, p2, p3, p4) -> {
             // TODO: Implement this method
             File mainFile = new File(p1.getItemAtPosition(p3).toString());
@@ -113,7 +118,7 @@ public class FileListView extends LinearLayout
             if(path.exists()){
                 if(path.isDirectory()){
                     fullPath = path;
-
+                    // get the files in the current path
                     File[] listFile = path.listFiles();
                     FileListAdapter fileAdapter = new FileListAdapter(context);
                     if(!path.equals(lockPath)){
@@ -121,10 +126,13 @@ public class FileListView extends LinearLayout
                     }
 
                     if(listFile != null && listFile.length != 0){
+                        // sort the files lexicographically
                         Arrays.sort(listFile, new SortFileName());
 
                         for(File file : listFile){
                             if(file.isDirectory()){
+                                /* add the files that don't start with "." or start with .minecraft,
+                                 and only when showFolders is turn on */
                                 if(showFolders && ((!file.getName().startsWith(".")) || file.getName().equals(".minecraft")))
                                     fileAdapter.add(file);
                                 continue;
