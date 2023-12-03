@@ -54,10 +54,10 @@ import fr.spse.gamepad_remapper.Settings;
 
 public class Gamepad implements GrabListener, GamepadHandler {
 
-    /* Resolution scaler option, allow downsizing a window */
+    /** Resolution scaler option, allow downsizing a window */
     private final float mScaleFactor = LauncherPreferences.DEFAULT_PREF.getInt("resolutionRatio",100)/100f;
 
-    /* Sensitivity, adjusted according to screen size */
+    /** Sensitivity, adjusted according to screen size */
     private final double mSensitivityFactor = (1.4 * (1080f/ currentDisplayMetrics.heightPixels));
 
     private final ImageView mPointerImageView;

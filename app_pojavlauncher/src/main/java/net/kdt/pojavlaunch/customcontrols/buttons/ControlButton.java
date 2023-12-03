@@ -31,7 +31,7 @@ public class ControlButton extends TextView implements ControlInterface {
     protected ControlData mProperties;
     private final ControlLayout mControlLayout;
 
-    /* Cache value from the ControlData radius for drawing purposes */
+    /** Cache value from the ControlData radius for drawing purposes */
     private float mComputedRadius;
 
     protected boolean mIsToggled = false;
@@ -200,6 +200,11 @@ public class ControlButton extends TextView implements ControlInterface {
         }
     }
 
+    /**
+     *
+     * @param keycode
+     * @param isDown
+     */
     private void sendSpecialKey(int keycode, boolean isDown){
         switch (keycode) {
             case ControlData.SPECIALBTN_KEYBOARD:

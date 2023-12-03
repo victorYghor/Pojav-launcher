@@ -110,6 +110,10 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
         setProgress(progressKey, -1, -1);
     }
 
+    /**
+     * change the visibility of the view, when you click in the bottom with pixelated arrow
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
         mLinearLayout.setVisibility(mLinearLayout.getVisibility() == GONE ? VISIBLE : GONE);

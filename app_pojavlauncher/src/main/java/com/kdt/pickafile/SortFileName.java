@@ -3,6 +3,9 @@ package com.kdt.pickafile;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Compare the files with lexicographically, a custom comparator for files names.
+ */
 public class SortFileName implements Comparator<File>
 {
     @Override

@@ -11,6 +11,9 @@ import java.util.*;
 import net.kdt.pojavlaunch.*;
 import android.os.*;
 
+/**
+ * handler and access the files and directories
+ */
 public class FileListView extends LinearLayout
 {
     //For list view:
@@ -25,7 +28,7 @@ public class FileListView extends LinearLayout
 
     //For filtering by file types:
     /**
-     * constructor for get the files with this suffix
+     * Constructors initialize for get the files with this suffix
      */
     private final String[] fileSuffixes;
     private boolean showFiles = true;
@@ -79,7 +82,7 @@ public class FileListView extends LinearLayout
 
         mainLv = new ListView(context);
 
-        // todo what this does ?
+        // todo what this does ? personalize the controls when click in select
         mainLv.setOnItemClickListener((p1, p2, p3, p4) -> {
             // TODO: Implement this method
             File mainFile = new File(p1.getItemAtPosition(p3).toString());
@@ -174,6 +177,9 @@ public class FileListView extends LinearLayout
         listFileAt(getFullPath());
     }
 
+    /**
+     * If the parent dir exist, go to there
+     */
     public void parentDir() {
         if(!fullPath.getAbsolutePath().equals("/")){
             listFileAt(fullPath.getParentFile());

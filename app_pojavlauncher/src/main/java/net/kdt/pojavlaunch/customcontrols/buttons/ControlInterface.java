@@ -91,7 +91,7 @@ public interface ControlInterface extends View.OnLongClickListener, GrabListener
         setProperties(getProperties());
     }
 
-    /* This function should be overridden to store the properties */
+    /** This function should be overridden to store the properties */
     @CallSuper
     default void setProperties(ControlData properties, boolean changePos) {
         if (changePos) {
