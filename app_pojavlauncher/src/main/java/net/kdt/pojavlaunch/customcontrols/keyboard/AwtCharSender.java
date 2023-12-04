@@ -3,7 +3,7 @@ package net.kdt.pojavlaunch.customcontrols.keyboard;
 import net.kdt.pojavlaunch.AWTInputBridge;
 import net.kdt.pojavlaunch.AWTInputEvent;
 
-/** Send chars via the AWT Bridgee */
+/** Send chars via the AWT(Abstract Window toolkit) Bridge */
 public class AwtCharSender implements CharacterSenderStrategy {
     @Override
     public void sendBackspace() {

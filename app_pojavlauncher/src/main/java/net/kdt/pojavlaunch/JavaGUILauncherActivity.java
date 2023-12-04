@@ -320,6 +320,10 @@ public class JavaGUILauncherActivity extends BaseActivity implements View.OnTouc
         launchJavaRuntime(runtime, modFile, javaArgs);
     }
 
+    /**
+     * make the keyboard of cellphone show.
+     * @param view
+     */
     public void toggleKeyboard(View view) {
         mTouchCharInput.switchKeyboardState();
     }

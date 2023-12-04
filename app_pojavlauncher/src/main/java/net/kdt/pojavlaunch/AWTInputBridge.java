@@ -1,6 +1,14 @@
 package net.kdt.pojavlaunch;
 
+/**
+ * the AWT(Abstract Window toolkit) is a way to integrate, native GUI with java. For learn more about,
+ * read: <a href="https://en.wikipedia.org/wiki/Abstract_Window_Toolkit">AWT</a> download .jar in the
+ * device.
+ */
 public class AWTInputBridge {
+    /**
+     * @see <a href="https://docs.oracle.com/en/java/">Java Dcoumentation</a>
+     */
     public static final int EVENT_TYPE_CHAR = 1000;
     public static final int EVENT_TYPE_CURSOR_POS = 1003;
     public static final int EVENT_TYPE_KEY = 1005;

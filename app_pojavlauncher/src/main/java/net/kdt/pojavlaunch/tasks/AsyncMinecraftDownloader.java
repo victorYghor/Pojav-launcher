@@ -41,6 +41,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+// todo read and understand the file
 public class AsyncMinecraftDownloader {
 
     public static final String MINECRAFT_RES = "https://resources.download.minecraft.net/";
@@ -60,7 +61,7 @@ public class AsyncMinecraftDownloader {
             }
         });
     }
-    /* we do the throws DownloaderException thing to avoid blanket-catching Exception as a form of anti-lazy-developer protection */
+    /** we do the throws DownloaderException thing to avoid blanket-catching Exception as a form of anti-lazy-developer protection */
     private void downloadGame(Activity activity, JMinecraftVersionList.Version verInfo, String versionName) throws DownloaderException {
         final String downVName = "/" + versionName + "/" + versionName;
 

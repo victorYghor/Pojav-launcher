@@ -12,8 +12,9 @@ import androidx.preference.*;
 import java.util.*;
 import net.kdt.pojavlaunch.prefs.*;
 
+// todo understand what this does
 public class LocaleUtils extends ContextWrapper {
-
+    // constructor of the class
     public LocaleUtils(Context base) {
         super(base);
     }
